@@ -1,6 +1,8 @@
 # Copyright (c) 2026 yuumei-02. All Rights Reserved.
 # See the LICENSE file for more information.
 
+.ONESHELL:
+
 compiler := gcc
 flags := -Wall -Wextra -pedantic -std=c23
 
@@ -16,6 +18,9 @@ vystriyae: setup ./vystriyae
 	cp ./vystriyae/colors.h        ./build/lib/vystriyae/colors.h
 	cp ./vystriyae/unicode.h       ./build/lib/vystriyae/unicode.h
 	cp ./vystriyae/notifications.h ./build/lib/vystriyae/notifications.h
+	$(compiler) $(flags) -c -fPIC $(wildcard ./vystriyae/*.c)
+	$(compiler) $(flags) *.o -shared -o ./build/lib/libvystriyae.so -lm -lmcu-release
+	rm *.o
 
 example: setup ./example
 	$(compiler) $(flags) -I./build/lib -L./build/lib $(wildcard ./example/*.c) -o ./build/bin/example -lvystriyae -lm -lmcu-debug
