@@ -23,7 +23,7 @@ vystriyae: setup ./vystriyae
 	rm *.o
 
 example: setup ./example
-	$(compiler) $(flags) -I./build/lib -L./build/lib $(wildcard ./example/*.c) -o ./build/bin/example -lvystriyae -lm -lmcu-debug
+	$(compiler) $(flags) -I./build/lib -L./build/lib $(wildcard ./example/*.c) -o ./build/bin/example -l:libvystriyae.a -lm -lmcu-debug
 
 setup:
 	mkdir -p ./build/bin
