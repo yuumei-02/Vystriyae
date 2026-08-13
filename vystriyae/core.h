@@ -3,6 +3,14 @@
 
 #pragma once
 
+typedef struct {
+   u8 major;
+   u8 minor;
+   u8 path;
+} VystriyaeVersion;
+
+extern VystriyaeVersion G_vystriyae_version;
+
 typedef enum : u8 {
    CS_Normal = 0,
    CS_Bold,

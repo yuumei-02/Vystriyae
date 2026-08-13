@@ -26,6 +26,8 @@
 #define STDIN 0
 #define STDOUT 1
 
+VystriyaeVersion G_vystriyae_version = { 1, 0, 0 };
+
 Screen screen = {0};
 WindowManager wm = {0};
 CharMap charmap = {0};
