@@ -1,7 +1,7 @@
-from vystriyae import *
+import vystriyae
 
 def main():
-   system = System("./build/lib/libvystriyae.so")
+   system = vystriyae.System("./build/lib/libvystriyae.so")
    system.init()
    system.run()
    system.close()
